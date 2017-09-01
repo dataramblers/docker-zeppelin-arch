@@ -75,7 +75,8 @@ zeppelin-examples \
 .git* && \
 rm -r /root/.m2 && \
 pacman -Rsc --noconfirm nodejs npm maven bower && \
-pacman -Sc --noconfirm
+pacman -Sc --noconfirm && \
+sed -i 's/"local"/"localhost"/' flink/src/main/resources/interpreter-setting.json
 
 COPY . /buildenv
 
