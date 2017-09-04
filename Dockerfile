@@ -19,61 +19,11 @@ mvn clean package \
 -Dflink.version=1.3.2 \
 -Pspark-2.1 \
 -Phadoop-2.7 \
--Pscala-2.11 \
---projects \
-"!groovy,\
-!angular,\
-!shell,\
-!livy,\
-!hbase,\
-!pig,\
-!jdbc,\
-!file,\
-!ignite,\
-!kylin,\
-!lens,\
-!cassandra,\
-!elasticsearch,\
-!bigquery,\
-!alluxio,\
-!scio" && \
+-Pscala-2.11 && \
 chmod +x bin/zeppelin.sh && \
 find bin -type f -name "*.cmd" -exec rm {} \; && \
-rm -r alluxio \
-angular \
-beam \
-bigquery \
-cassandra \
-dev \
-docs \
-elasticsearch \
-file \
-geode \
-groovy \
-hbase \
-helium-dev \
-ignite \
-jdbc \
-kylin \
-lens \
-LICENSE \
-licenses \
-livy \
-NOTICE \
-pig \
-pom.xml \
-README.md \
-Roadmap.md \
-scalding \
-scio \
-scripts \
-SECURITY-README.md \
-STYLE.md \
-testing _tools \
-travis_check.py \
-zeppelin-examples \
-.git* && \
 rm -r /root/.m2 && \
+rm -r .git && \
 pacman -Rsc --noconfirm nodejs npm maven bower && \
 pacman -Sc --noconfirm
 
