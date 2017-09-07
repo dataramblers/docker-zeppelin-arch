@@ -11,12 +11,14 @@ WORKDIR /buildenv
 RUN pacman -Syy && \
 pacman -S --noconfirm -q nodejs npm git jdk8-openjdk maven bower && \
 echo '{ "allow_root": true }' > /root/.bowerrc && \
-git clone https://github.com/apache/zeppelin.git && \
+git clone https://github.com/dataramblers/zeppelin.git && \
 cd ./zeppelin && \
+./dev/change_scala_version.sh 2.11 && \
 mvn clean package \
 -DskipTests \
 -Dbuild-distr \
 -Dflink.version=1.3.2 \
+-Dlucene.version=6.6.1 \
 -Pspark-2.1 \
 -Phadoop-2.7 \
 -Pscala-2.11 \
